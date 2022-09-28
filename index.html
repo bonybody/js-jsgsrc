@@ -1,0 +1,26 @@
+<div id="app">
+  <form id="app-form">
+    <label style="display: block"> ID:<input type="text" name="id" /> </label>
+    <label style="display: block">
+      PASSWORD:<input type="password" name="password" />
+    </label>
+    <button type="submit">認証</button>
+  </form>
+</div>
+
+<script>
+  const handleSubmit = (e) => {
+    alert('hoge');
+    const data = new FormData(e.target)
+    const id = data.get('id')
+    const password = data.get('password')
+    const path = id + "_" + password ".html"
+    window.href = path
+    event.preventDefault();
+  };
+
+  const form = document.querySelector('#app-form');
+  form.addEventListener('submit', function (e) {
+    handleSubmit(e);
+  });
+</script>
